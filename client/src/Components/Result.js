@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ResultCard from './ResultCard';
 import Slider from "react-slick";
+import Card from 'react-bootstrap/Card';
 import './Result.css';
 /*global kakao*/
 
@@ -28,13 +29,14 @@ export default class Result extends Component {
     render() {
 
         const settings = {
-            className: "center",
-            centerMode: true,
+            centerMode: false,
             infinite: true,
-            centerPadding: "40px",
-            slidesToShow: 1,
-            slidesToScroll: 1,
+            centerPadding: "60px",
+            slidesToShow: 2,
             speed: 500,
+            rows: 2,
+            slidesPerRow: 1,
+            dots: true,
             beforeChange: (prevIndex, nextIndex) => {
 
             if (this.props.searchResults.length > 0)  {
@@ -52,19 +54,23 @@ export default class Result extends Component {
           };        
 
         return (
-            <div className ="resultContainer">
-                <Slider {...settings}>
-
-                {this.props.searchResults.map(function(d, idx){                   
+  
+            <Slider {...settings}>
+            {this.props.searchResults.map(function(d, idx){                   
                     return ( 
-                    <div className ="img-card"> 
+                        <div className ="cardspace">
                         <ResultCard idx ={idx} result={d} sendClick = {this.OnMoveCenter}/>
-                    </div>);
+                        </div>);
                 }, this)}
-
-                </Slider>
-
-            </div>
+            </Slider>
+   
         )
     }
 }
+
+/*
+                {this.props.searchResults.map(function(d, idx){                   
+                    return ( 
+                        <ResultCard idx ={idx} result={d} sendClick = {this.OnMoveCenter}/>);
+                }, this)}
+*/

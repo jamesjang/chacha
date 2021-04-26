@@ -21,13 +21,13 @@ export default class Home extends Component {
     }
     render() {
         return (
-            <div className ="Container">
+            <div className ="Containersb">
             <Topbar />
             <div>
             <Container>
             <Row>
-                <Col></Col>
-                <Col xs={9}> <Map sendResults = {this.onGetResults}/> </Col>
+                <Col> olka</Col>
+
                 <Col></Col>
             </Row>
             </Container>

@@ -81,9 +81,6 @@ export default class Map extends Component {
     }
 
     onSuggestionsFetchRequested = ({ value }) => {
-       // const places = new kakao.maps.services.Places();
-
-        //places.keywordSearch(value, this.callback);
         this.state.places.keywordSearch(value, this.callback);
     }
 

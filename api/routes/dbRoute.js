@@ -6,6 +6,7 @@ router.get('/', (req, res, next) => {
     res.send('succesfully connected to api');
 })
 
+router.get('/filter/all', dbController.getallFilters);
 
 router.post('/filter/new', dbController.createItem);
 

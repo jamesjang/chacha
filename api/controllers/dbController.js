@@ -9,10 +9,20 @@ const url = 'https://place.map.kakao.com/';
 const collectionName = 'filterCategory';
 const shopDataCollectionName ='shopData';
 
+
+exports.getallFilters = function(req, res) {
+    const collection = db.getDB().collection(collectionName);
+
+    collection.find().toArray((_error, _result) => { // callback of find
+        if (_error) throw _error;
+
+        res.json(_result);
+     });
+};
+
 exports.getAll = async(req, res) => {
     test();
     res.send('testing');
-
 };
 
 
